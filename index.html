@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+<title>Train Schedule</title>
+</head>
+
+<body class="pb-5">
+  <header id="bro">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 d-flex flex-column text-center py-5 px-3 bg-secondary text-white">
+          <h1>Train Schedule</h1>
+          <div class="lead clearfix">Your comprehensive list of train shcedules</div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <section id="result" class="mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 px-0">
+          <div class="card mb-3">
+            <h5 class="card-header bg-secondary text-white">
+              Current Train Schedule</h5>
+            <div class="card-body tableResults">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Train Name</th>
+                            <th>Destination</th>
+                            <th>Frequency (min)</th>
+                            <th>Next Arrival</th>
+                            <th>Minutes Away</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td scope="row"></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td scope="row"></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="form">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 px-0">
+          <div class="card">
+            <h5 class="card-header bg-secondary text-white">
+              <i class="fa fa-newspaper"></i>Add Train</h5>
+            <div class="card-body">
+              <form>
+                <div class="form-group">
+                  <label for="inputST">Train Name</label>
+                  <input type="text" class="form-control" id="tName" placeholder="Empire Builder">
+                </div>
+                <div class="form-group">
+                  <label for="inputRcrd">Destination</label>
+                  <input type="text" class="form-control" id="destination" placeholder="Minneapolis">
+                </div>
+                <div class="form-group">
+                  <label for="inputYr">First Train Time (HH:mm - military time)</label>
+                  <input type="time" class="form-control" id="time" placeholder="23:40">
+                </div>
+                <div class="form-group">
+                  <label for="inputEnYr">Frequency (min)</label>
+                  <input type="number" class="form-control" id="frequency" placeholder="30">
+                </div>
+                <button id="submit" type="submit" class="btn btn-primary bg-secondary border-secondary">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js">
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+  <script src="assets/js/time.js"></script>
+</body>
+</html>
