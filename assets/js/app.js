@@ -10,6 +10,35 @@ $(document).on("ready", function () {
     };
     firebase.initializeApp(config);
 
-    
+    var database = firebase.database.ref();
+
+    var tName ;
+    var tDest ;
+    var tTime ;
+    var tFreq ;
+    var nextArriv ;
+    var minAway ;
+
+    function addRow() {
+        var tableRow = $("<tr>");
+        var tableData = $("<td>");
+
+        tableRow.append(tableData);
+        $("#results").append(tableRow);
+    }
+
+    $("#submit").on("click", function() {
+        tName = $("#tName").val();
+        tDest = $("#destination").val();
+        tTime = $("#time").val();
+        tFreq = $("#frequency").val();
+
+        database.ref().push({
+            tName: tName,
+            tDest: tDest,
+            tTime: tTime,
+            tFreq: tFreq
+        });
+    });
 
 });
