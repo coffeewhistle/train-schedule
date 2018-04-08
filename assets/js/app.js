@@ -56,7 +56,7 @@ $(document).ready(function () {
         var dtTime = childSnapshot.val().tTime;
         var dtFreq = childSnapshot.val().tFreq;
 
-        addRow(dtName, dtDest, dtFreq, dtTime);
+        addRow(dtName, dtDest, dtFreq);
 
     });
 
