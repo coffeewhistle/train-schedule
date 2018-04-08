@@ -19,19 +19,19 @@ $(document).ready(function () {
     var nextArriv = "";
     var minAway = "";
 
-    function addRow(name, dest, time, freq) {
+    function addRow(name, dest, freq, time) {
         var tableRow = $("<tr>");
-        var tableData = $("<td>");
 
-        var addTrain = tableData.text(name);
-        var addDest = tableData.text(dest);
-        var addTime = tableData.text(time);
-        var addFreq = tableData.text(freq);
+        var addTrain = $("<td>").text(name);
+        var addDest = $("<td>").text(dest);
+        var addTime = $("<td>").text(time);
+        var addFreq = $("<td>").text(freq);
         
         tableRow.append(addTrain);
         tableRow.append(addDest);
-        tableRow.append(addTime);
         tableRow.append(addFreq);
+        tableRow.append(addTime);
+
         $("#results").append(tableRow);
     }
 
@@ -56,6 +56,7 @@ $(document).ready(function () {
         var dtTime = childSnapshot.val().tTime;
         var dtFreq = childSnapshot.val().tFreq;
 
+        addRow(dtName, dtDest, dtFreq, dtTime);
 
     });
 
