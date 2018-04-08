@@ -1,4 +1,4 @@
-$(document).on("ready", function () {
+$(document).ready(function () {
 
     var config = {
         apiKey: "AIzaSyCoMz1y-KDjBZOy91LlGUcELkkTaKsfz8Y",
@@ -10,28 +10,37 @@ $(document).on("ready", function () {
     };
     firebase.initializeApp(config);
 
-    var database = firebase.database.ref();
+    var database = firebase.database();
 
-    var tName ;
-    var tDest ;
-    var tTime ;
-    var tFreq ;
-    var nextArriv ;
-    var minAway ;
+    var tName = "";
+    var tDest = "";
+    var tTime = "";
+    var tFreq = "";
+    var nextArriv = "";
+    var minAway = "";
 
-    function addRow() {
+    function addRow(name, dest, time, freq) {
         var tableRow = $("<tr>");
         var tableData = $("<td>");
 
-        tableRow.append(tableData);
+        var addTrain = tableData.text(name);
+        var addDest = tableData.text(dest);
+        var addTime = tableData.text(time);
+        var addFreq = tableData.text(freq);
+        
+        tableRow.append(addTrain);
+        tableRow.append(addDest);
+        tableRow.append(addTime);
+        tableRow.append(addFreq);
         $("#results").append(tableRow);
     }
 
-    $("#submit").on("click", function() {
-        tName = $("#tName").val();
-        tDest = $("#destination").val();
-        tTime = $("#time").val();
-        tFreq = $("#frequency").val();
+    $("#submit").on("click", function (event) {
+        event.preventDefault();
+        tName = $("#tName").val().trim();
+        tDest = $("#destination").val().trim();
+        tTime = $("#time").val().trim();
+        tFreq = $("#frequency").val().trim();
 
         database.ref().push({
             tName: tName,
@@ -39,6 +48,15 @@ $(document).on("ready", function () {
             tTime: tTime,
             tFreq: tFreq
         });
+    });
+
+    database.ref().on("child_added", function(childSnapshot) {
+        var dtName = childSnapshot.val().tName;
+        var dtDest = childSnapshot.val().tDest;
+        var dtTime = childSnapshot.val().tTime;
+        var dtFreq = childSnapshot.val().tFreq;
+
+
     });
 
 });
